@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Manager Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'DM Sans', sans-serif;
+    }
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+      animation: float 8s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, -30px) scale(1.1); }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .skill-bar {
+      transition: width 1s ease-out;
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background-color: #0f0f1a;"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-opacity-80" style="background-color: rgba(15, 15, 26, 0.9);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"><a href="#hero" class="font-display font-bold text-xl" style="color: #f4f4f8;"> <span class="gradient-text">PM</span>Portfolio </a>
+     <div class="hidden md:flex gap-8"><a href="#about" class="nav-link text-sm font-medium" style="color: #a0a0b0;">About</a> <a href="#skills" class="nav-link text-sm font-medium" style="color: #a0a0b0;">Skills</a> <a href="#case-studies" class="nav-link text-sm font-medium" style="color: #a0a0b0;">Case Studies</a> <a href="#projects" class="nav-link text-sm font-medium" style="color: #a0a0b0;">Projects</a> <a href="#contact" class="nav-link text-sm font-medium" style="color: #a0a0b0;">Contact</a>
+     </div><button id="mobile-menu-btn" class="md:hidden p-2" style="color: #f4f4f8;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+     <div class="flex flex-col gap-4"><a href="#about" class="text-sm font-medium" style="color: #a0a0b0;">About</a> <a href="#skills" class="text-sm font-medium" style="color: #a0a0b0;">Skills</a> <a href="#case-studies" class="text-sm font-medium" style="color: #a0a0b0;">Case Studies</a> <a href="#projects" class="text-sm font-medium" style="color: #a0a0b0;">Projects</a> <a href="#contact" class="text-sm font-medium" style="color: #a0a0b0;">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden px-6"><!-- Animated Blobs -->
+    <div class="blob w-96 h-96 -top-20 -left-20" style="background: #667eea;"></div>
+    <div class="blob w-80 h-80 top-1/2 -right-20" style="background: #764ba2; animation-delay: -4s;"></div>
+    <div class="blob w-64 h-64 bottom-20 left-1/3" style="background: #f093fb; animation-delay: -2s;"></div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+     <div class="animate-fade-in-up opacity-0"><span class="inline-block px-4 py-2 rounded-full text-sm font-medium mb-6" style="background: rgba(102, 126, 234, 0.2); color: #667eea;"> 🎓 Product Management Student @ IPL </span>
+     </div>
+     <h1 id="hero-name" class="font-display text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up opacity-0 delay-100" style="color: #f4f4f8;">Hi, I'm <span class="gradient-text">Alex Chen</span></h1>
+     <p id="hero-tagline" class="text-xl md:text-2xl mb-8 animate-fade-in-up opacity-0 delay-200" style="color: #a0a0b0;">Aspiring Product Manager passionate about building user-centric products that solve real problems</p>
+     <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up opacity-0 delay-300"><a href="#case-studies" class="px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff;"> View Case Studies </a> <a href="#contact" class="px-8 py-4 rounded-full font-semibold border-2 transition-all hover:scale-105" style="border-color: #667eea; color: #667eea;"> Get In Touch </a>
+     </div><!-- Scroll Indicator -->
+     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6" style="color: #667eea;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="relative">
+       <div class="w-full aspect-square rounded-3xl overflow-hidden" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="w-full h-full flex items-center justify-center">
+         <svg class="w-48 h-48" style="color: rgba(255,255,255,0.3);" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+         </svg>
+        </div>
+       </div>
+       <div class="absolute -bottom-4 -right-4 px-6 py-3 rounded-2xl font-semibold" style="background-color: #1a1a2e; color: #667eea; border: 2px solid #667eea;">
+        📊 Data-Driven
+       </div>
+      </div>
+      <div><span class="text-sm font-semibold uppercase tracking-wider" style="color: #667eea;">About Me</span>
+       <h2 class="font-display text-4xl font-bold mt-2 mb-6" style="color: #f4f4f8;">Turning Ideas Into <span class="gradient-text">Products</span></h2>
+       <p id="about-description" class="text-lg leading-relaxed mb-6" style="color: #a0a0b0;">As a Product Management student at IPL, I combine analytical thinking with creative problem-solving to build products that users love. My journey in product management started with a curiosity about how technology can improve everyday experiences.</p>
+       <p class="text-lg leading-relaxed mb-8" style="color: #a0a0b0;">I specialize in user research, product strategy, and agile methodologies. When I'm not studying or working on projects, you'll find me exploring new tech trends or mentoring fellow students.</p>
+       <div class="flex flex-wrap gap-4">
+        <div class="px-4 py-2 rounded-xl" style="background-color: #1a1a2e;"><span style="color: #667eea;">🔍</span> <span class="ml-2" style="color: #f4f4f8;">User Research</span>
+        </div>
+        <div class="px-4 py-2 rounded-xl" style="background-color: #1a1a2e;"><span style="color: #764ba2;">📐</span> <span class="ml-2" style="color: #f4f4f8;">Product Strategy</span>
+        </div>
+        <div class="px-4 py-2 rounded-xl" style="background-color: #1a1a2e;"><span style="color: #f093fb;">🚀</span> <span class="ml-2" style="color: #f4f4f8;">Agile/Scrum</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section id="skills" class="py-24 px-6" style="background-color: #1a1a2e;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16"><span class="text-sm font-semibold uppercase tracking-wider" style="color: #667eea;">Expertise</span>
+      <h2 class="font-display text-4xl font-bold mt-2" style="color: #f4f4f8;">Skills &amp; <span class="gradient-text">Competencies</span></h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Product Skills -->
+      <div class="p-8 rounded-3xl card-hover" style="background-color: #0f0f1a;">
+       <h3 class="font-display text-xl font-bold mb-6" style="color: #f4f4f8;">🎯 Product Management</h3>
+       <div class="space-y-6">
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">Product Strategy</span> <span style="color: #667eea;">90%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 90%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">User Research</span> <span style="color: #667eea;">85%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 85%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">Roadmap Planning</span> <span style="color: #667eea;">88%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 88%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">A/B Testing</span> <span style="color: #667eea;">80%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 80%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Technical Skills -->
+      <div class="p-8 rounded-3xl card-hover" style="background-color: #0f0f1a;">
+       <h3 class="font-display text-xl font-bold mb-6" style="color: #f4f4f8;">💻 Technical &amp; Tools</h3>
+       <div class="space-y-6">
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">Figma &amp; Design Tools</span> <span style="color: #764ba2;">85%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 85%; background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">SQL &amp; Analytics</span> <span style="color: #764ba2;">75%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 75%; background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">Jira &amp; Agile Tools</span> <span style="color: #764ba2;">90%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 90%; background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span style="color: #a0a0b0;">Data Visualization</span> <span style="color: #764ba2;">82%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background-color: #2a2a3e;">
+          <div class="h-2 rounded-full skill-bar" style="width: 82%; background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);"></div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Soft Skills -->
+     <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="p-6 rounded-2xl text-center card-hover" style="background-color: #0f0f1a;">
+       <div class="text-3xl mb-3">
+        🗣️
+       </div><span class="font-medium" style="color: #f4f4f8;">Communication</span>
+      </div>
+      <div class="p-6 rounded-2xl text-center card-hover" style="background-color: #0f0f1a;">
+       <div class="text-3xl mb-3">
+        🤝
+       </div><span class="font-medium" style="color: #f4f4f8;">Leadership</span>
+      </div>
+      <div class="p-6 rounded-2xl text-center card-hover" style="background-color: #0f0f1a;">
+       <div class="text-3xl mb-3">
+        🧩
+       </div><span class="font-medium" style="color: #f4f4f8;">Problem Solving</span>
+      </div>
+      <div class="p-6 rounded-2xl text-center card-hover" style="background-color: #0f0f1a;">
+       <div class="text-3xl mb-3">
+        ⏰
+       </div><span class="font-medium" style="color: #f4f4f8;">Time Management</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- Case Studies Section -->
+   <section id="case-studies" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16"><span class="text-sm font-semibold uppercase tracking-wider" style="color: #667eea;">Portfolio</span>
+      <h2 class="font-display text-4xl font-bold mt-2" style="color: #f4f4f8;">Featured <span class="gradient-text">Case Studies</span></h2>
+      <p class="mt-4 max-w-2xl mx-auto" style="color: #a0a0b0;">Deep dives into real product challenges I've tackled, showcasing my problem-solving approach and impact</p>
+     </div><!-- Case Study 1 -->
+     <div class="mb-12 rounded-3xl overflow-hidden card-hover" style="background-color: #1a1a2e;">
+      <div class="grid md:grid-cols-2">
+       <div class="p-8 md:p-12">
+        <div class="flex items-center gap-3 mb-4"><span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(102, 126, 234, 0.2); color: #667eea;">E-Commerce</span> <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(118, 75, 162, 0.2); color: #764ba2;">UX Research</span>
+        </div>
+        <h3 class="font-display text-2xl font-bold mb-4" style="color: #f4f4f8;">Reducing Cart Abandonment by 35%</h3>
+        <p class="mb-6" style="color: #a0a0b0;">Led user research and redesigned the checkout flow for a campus marketplace app, resulting in significant conversion improvement.</p>
+        <div class="space-y-3 mb-6">
+         <div class="flex items-center gap-3"><span style="color: #667eea;">📊</span> <span style="color: #a0a0b0;">Conducted 25+ user interviews</span>
+         </div>
+         <div class="flex items-center gap-3"><span style="color: #667eea;">🔬</span> <span style="color: #a0a0b0;">A/B tested 3 checkout variants</span>
+         </div>
+         <div class="flex items-center gap-3"><span style="color: #667eea;">📈</span> <span style="color: #a0a0b0;">35% reduction in cart abandonment</span>
+         </div>
+        </div><button class="case-study-btn px-6 py-3 rounded-full font-semibold transition-all hover:scale-105" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff;" data-case="1"> Read Full Case Study → </button>
+       </div>
+       <div class="aspect-video md:aspect-auto flex items-center justify-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <svg class="w-24 h-24" style="color: rgba(255,255,255,0.3);" viewbox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+        </svg>
+       </div>
+      </div>
+     </div><!-- Case Study 2 -->
+     <div class="mb-12 rounded-3xl overflow-hidden card-hover" style="background-color: #1a1a2e;">
+      <div class="grid md:grid-cols-2">
+       <div class="order-2 md:order-1 aspect-video md:aspect-auto flex items-center justify-center" style="background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);">
+        <svg class="w-24 h-24" style="color: rgba(255,255,255,0.3);" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+       </div>
+       <div class="order-1 md:order-2 p-8 md:p-12">
+        <div class="flex items-center gap-3 mb-4"><span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(240, 147, 251, 0.2); color: #f093fb;">EdTech</span> <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(118, 75, 162, 0.2); color: #764ba2;">Product Strategy</span>
+        </div>
+        <h3 class="font-display text-2xl font-bold mb-4" style="color: #f4f4f8;">Building a Student Productivity App</h3>
+        <p class="mb-6" style="color: #a0a0b0;">From ideation to MVP - designed and launched a task management app specifically for university students with unique academic features.</p>
+        <div class="space-y-3 mb-6">
+         <div class="flex items-center gap-3"><span style="color: #f093fb;">💡</span> <span style="color: #a0a0b0;">Validated with 100+ student surveys</span>
+         </div>
+         <div class="flex items-center gap-3"><span style="color: #f093fb;">🎨</span> <span style="color: #a0a0b0;">Created wireframes &amp; prototypes</span>
+         </div>
+         <div class="flex items-center gap-3"><span style="color: #f093fb;">🚀</span> <span style="color: #a0a0b0;">500+ active users in first month</span>
+         </div>
+        </div><button class="case-study-btn px-6 py-3 rounded-full font-semibold transition-all hover:scale-105" style="background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%); color: #fff;" data-case="2"> Read Full Case Study → </button>
+       </div>
+      </div>
+     </div><!-- Case Study 3 -->
+     <div class="rounded-3xl overflow-hidden card-hover" style="background-color: #1a1a2e;">
+      <div class="grid md:grid-cols-2">
+       <div class="p-8 md:p-12">
+        <div class="flex items-center gap-3 mb-4"><span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(102, 126, 234, 0.2); color: #667eea;">FinTech</span> <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(240, 147, 251, 0.2); color: #f093fb;">Data Analysis</span>
+        </div>
+        <h3 class="font-display text-2xl font-bold mb-4" style="color: #f4f4f8;">Improving Financial Literacy Feature</h3>
+        <p class="mb-6" style="color: #a0a0b0;">Analyzed user behavior data to redesign the budgeting module of a student finance app, increasing daily engagement by 40%.</p>
+        <div class="space-y-3 mb-6">
+         <div class="flex items-center gap-3"><span style="color: #667eea;">📉</span> <span style="color: #a0a0b0;">Analyzed 10K+ user sessions</span>
+         </div>
+         <div class="flex items-center gap-3"><span style="color: #667eea;">🎯</span> <span style="color: #a0a0b0;">Identified 5 key drop-off points</span>
+         </div>
+         <div class="flex items-center gap-3"><span style="color: #667eea;">⬆️</span> <span style="color: #a0a0b0;">40% increase in daily active users</span>
+         </div>
+        </div><button class="case-study-btn px-6 py-3 rounded-full font-semibold transition-all hover:scale-105" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff;" data-case="3"> Read Full Case Study → </button>
+       </div>
+       <div class="aspect-video md:aspect-auto flex items-center justify-center" style="background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);">
+        <svg class="w-24 h-24" style="color: rgba(255,255,255,0.3);" viewbox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+        </svg>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Case Study Modal -->
+   <div id="case-study-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" style="background: rgba(0,0,0,0.8);">
+    <div class="max-w-3xl w-full max-h-[90%] overflow-auto rounded-3xl p-8" style="background-color: #1a1a2e;">
+     <div class="flex justify-between items-start mb-6">
+      <h3 id="modal-title" class="font-display text-2xl font-bold" style="color: #f4f4f8;"></h3><button id="close-modal" class="p-2 rounded-full hover:bg-opacity-20" style="color: #a0a0b0;">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       </svg></button>
+     </div>
+     <div id="modal-content" style="color: #a0a0b0;"></div>
+    </div>
+   </div><!-- Projects Section -->
+   <section id="projects" class="py-24 px-6" style="background-color: #1a1a2e;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16"><span class="text-sm font-semibold uppercase tracking-wider" style="color: #667eea;">Work</span>
+      <h2 class="font-display text-4xl font-bold mt-2" style="color: #f4f4f8;">Other <span class="gradient-text">Projects</span></h2>
+     </div>
+     <div class="grid md:grid-cols-3 gap-6"><!-- Project 1 -->
+      <div class="p-6 rounded-2xl card-hover" style="background-color: #0f0f1a;">
+       <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><span class="text-2xl">📱</span>
+       </div>
+       <h3 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">Campus Events App</h3>
+       <p class="text-sm mb-4" style="color: #a0a0b0;">Product spec and wireframes for a university event discovery platform</p>
+       <div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded text-xs" style="background-color: #2a2a3e; color: #667eea;">Figma</span> <span class="px-2 py-1 rounded text-xs" style="background-color: #2a2a3e; color: #764ba2;">PRD</span>
+       </div>
+      </div><!-- Project 2 -->
+      <div class="p-6 rounded-2xl card-hover" style="background-color: #0f0f1a;">
+       <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);"><span class="text-2xl">🤖</span>
+       </div>
+       <h3 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">AI Study Assistant</h3>
+       <p class="text-sm mb-4" style="color: #a0a0b0;">Conceptualized an AI-powered study companion with personalized learning paths</p>
+       <div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded text-xs" style="background-color: #2a2a3e; color: #f093fb;">AI/ML</span> <span class="px-2 py-1 rounded text-xs" style="background-color: #2a2a3e; color: #667eea;">Concept</span>
+       </div>
+      </div><!-- Project 3 -->
+      <div class="p-6 rounded-2xl card-hover" style="background-color: #0f0f1a;">
+       <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);"><span class="text-2xl">📊</span>
+       </div>
+       <h3 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">Market Research Report</h3>
+       <p class="text-sm mb-4" style="color: #a0a0b0;">Competitive analysis of food delivery apps in the student market segment</p>
+       <div class="flex flex-wrap gap-2"><span class="px-2 py-1 rounded text-xs" style="background-color: #2a2a3e; color: #667eea;">Research</span> <span class="px-2 py-1 rounded text-xs" style="background-color: #2a2a3e; color: #764ba2;">Analysis</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center"><span class="text-sm font-semibold uppercase tracking-wider" style="color: #667eea;">Get In Touch</span>
+     <h2 class="font-display text-4xl font-bold mt-2 mb-6" style="color: #f4f4f8;">Let's <span class="gradient-text">Connect</span></h2>
+     <p class="text-lg mb-12" style="color: #a0a0b0;">I'm always excited to discuss product ideas, internship opportunities, or just chat about the latest in tech!</p>
+     <div class="grid md:grid-cols-3 gap-6 mb-12"><a href="#" class="p-6 rounded-2xl card-hover block" style="background-color: #1a1a2e;">
+       <div class="text-3xl mb-3">
+        📧
+       </div><h3 class="font-semibold mb-1" style="color: #f4f4f8;">Email</h3><p id="contact-email-display" class="text-sm" style="color: #667eea;">alex.chen@ipl.edu</p></a> <a href="#" class="p-6 rounded-2xl card-hover block" style="background-color: #1a1a2e;">
+       <div class="text-3xl mb-3">
+        💼
+       </div><h3 class="font-semibold mb-1" style="color: #f4f4f8;">LinkedIn</h3><p class="text-sm" style="color: #667eea;">/in/alexchen-pm</p></a> <a href="#" class="p-6 rounded-2xl card-hover block" style="background-color: #1a1a2e;">
+       <div class="text-3xl mb-3">
+        🐙
+       </div><h3 class="font-semibold mb-1" style="color: #f4f4f8;">GitHub</h3><p class="text-sm" style="color: #667eea;">@alexchen-pm</p></a>
+     </div><!-- Contact Form -->
+     <div class="p-8 rounded-3xl text-left" style="background-color: #1a1a2e;">
+      <h3 class="font-display text-xl font-bold mb-6 text-center" style="color: #f4f4f8;">Send a Message</h3>
+      <form id="contact-form" class="space-y-4">
+       <div class="grid md:grid-cols-2 gap-4">
+        <div><label for="name" class="block text-sm font-medium mb-2" style="color: #a0a0b0;">Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-colors" style="background-color: #0f0f1a; border-color: #2a2a3e; color: #f4f4f8;" placeholder="Your name">
+        </div>
+        <div><label for="email" class="block text-sm font-medium mb-2" style="color: #a0a0b0;">Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-colors" style="background-color: #0f0f1a; border-color: #2a2a3e; color: #f4f4f8;" placeholder="your@email.com">
+        </div>
+       </div>
+       <div><label for="subject" class="block text-sm font-medium mb-2" style="color: #a0a0b0;">Subject</label> <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-colors" style="background-color: #0f0f1a; border-color: #2a2a3e; color: #f4f4f8;" placeholder="What's this about?">
+       </div>
+       <div><label for="message" class="block text-sm font-medium mb-2" style="color: #a0a0b0;">Message</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-colors resize-none" style="background-color: #0f0f1a; border-color: #2a2a3e; color: #f4f4f8;" placeholder="Your message..."></textarea>
+       </div><button type="submit" class="w-full py-4 rounded-xl font-semibold transition-all hover:scale-[1.02]" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff;"> Send Message 🚀 </button>
+      </form>
+      <div id="form-success" class="hidden text-center py-8">
+       <div class="text-4xl mb-4">
+        ✅
+       </div>
+       <h4 class="font-display text-xl font-bold mb-2" style="color: #f4f4f8;">Message Sent!</h4>
+       <p style="color: #a0a0b0;">Thanks for reaching out. I'll get back to you soon!</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 px-6 border-t" style="border-color: #2a2a3e;">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+     <p style="color: #a0a0b0;">© 2024 Alex Chen. Built with passion 💜</p>
+     <div class="flex gap-6"><a href="#" class="transition-colors hover:opacity-80" style="color: #667eea;">LinkedIn</a> <a href="#" class="transition-colors hover:opacity-80" style="color: #667eea;">GitHub</a> <a href="#" class="transition-colors hover:opacity-80" style="color: #667eea;">Twitter</a>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      hero_name: "Alex Chen",
+      hero_tagline: "Aspiring Product Manager passionate about building user-centric products that solve real problems",
+      about_text: "As a Product Management student at IPL, I combine analytical thinking with creative problem-solving to build products that users love. My journey in product management started with a curiosity about how technology can improve everyday experiences.",
+      contact_email: "alex.chen@ipl.edu",
+      background_color: "#0f0f1a",
+      surface_color: "#1a1a2e",
+      text_color: "#f4f4f8",
+      primary_action: "#667eea",
+      secondary_action: "#764ba2"
+    };
+
+    // Case study data
+    const caseStudies = {
+      1: {
+        title: "Reducing Cart Abandonment by 35%",
+        content: `
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">🎯 The Challenge</h4>
+              <p>The campus marketplace app was experiencing a 68% cart abandonment rate, significantly higher than industry average. Students were adding items to their cart but not completing purchases.</p>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">🔍 Research & Discovery</h4>
+              <p>I conducted 25+ user interviews and analyzed session recordings to identify pain points. Key findings included: confusing payment flow, lack of trust signals, and no guest checkout option.</p>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">💡 Solution</h4>
+              <p>Redesigned the checkout flow with: simplified 3-step process, prominent trust badges, guest checkout option, and real-time order summary. A/B tested 3 variants over 4 weeks.</p>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">📈 Results</h4>
+              <ul class="list-disc list-inside space-y-2">
+                <li>35% reduction in cart abandonment</li>
+                <li>22% increase in completed transactions</li>
+                <li>NPS score improved from 32 to 58</li>
+              </ul>
+            </div>
+          </div>
+        `
+      },
+      2: {
+        title: "Building a Student Productivity App",
+        content: `
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">🎯 The Opportunity</h4>
+              <p>Through surveys of 100+ students, I identified a gap in productivity tools that understood academic schedules, assignment deadlines, and exam periods.</p>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">🔍 Research & Validation</h4>
+              <p>Created user personas, journey maps, and conducted competitive analysis. Validated core features through prototype testing with 30 students.</p>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">💡 Key Features</h4>
+              <ul class="list-disc list-inside space-y-2">
+                <li>Smart scheduling based on class timetable</li>
+                <li>Assignment tracker with deadline reminders</li>
+                <li>Study session timer with break suggestions</li>
+                <li>Integration with university calendar</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">📈 Results</h4>
+              <p>Launched MVP to 500+ users in the first month. Average session time of 12 minutes. 78% weekly retention rate. Featured in university newsletter.</p>
+            </div>
+          </div>
+        `
+      },
+      3: {
+        title: "Improving Financial Literacy Feature",
+        content: `
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">🎯 The Problem</h4>
+              <p>The budgeting module had low engagement despite being a core feature. Only 15% of users who started the budget setup completed it.</p>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">🔍 Data Analysis</h4>
+              <p>Analyzed 10K+ user sessions using Mixpanel. Identified 5 key drop-off points and conducted follow-up interviews to understand the 'why' behind the data.</p>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">💡 Solution</h4>
+              <ul class="list-disc list-inside space-y-2">
+                <li>Gamified onboarding with progress milestones</li>
+                <li>Pre-populated budget templates for students</li>
+                <li>Visual spending insights with peer comparison</li>
+                <li>Weekly financial tips personalized to spending</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-display text-lg font-bold mb-2" style="color: #f4f4f8;">📈 Results</h4>
+              <p>40% increase in daily active users. Setup completion rate improved to 52%. Average time-to-value reduced by 60%.</p>
+            </div>
+          </div>
+        `
+      }
+    };
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          // Update hero section
+          const heroName = document.getElementById('hero-name');
+          const name = config.hero_name || defaultConfig.hero_name;
+          heroName.innerHTML = `Hi, I'm <span class="gradient-text">${name}</span>`;
+          
+          document.getElementById('hero-tagline').textContent = config.hero_tagline || defaultConfig.hero_tagline;
+          document.getElementById('about-description').textContent = config.about_text || defaultConfig.about_text;
+          
+          const email = config.contact_email || defaultConfig.contact_email;
+          document.getElementById('contact-email-display').textContent = email;
+          
+          // Apply colors
+          const bgColor = config.background_color || defaultConfig.background_color;
+          const surfaceColor = config.surface_color || defaultConfig.surface_color;
+          const textColor = config.text_color || defaultConfig.text_color;
+          const primaryAction = config.primary_action || defaultConfig.primary_action;
+          const secondaryAction = config.secondary_action || defaultConfig.secondary_action;
+          
+          document.getElementById('app-wrapper').style.backgroundColor = bgColor;
+          
+          // Update surface colors
+          document.querySelectorAll('[style*="background-color: #1a1a2e"]').forEach(el => {
+            el.style.backgroundColor = surfaceColor;
+          });
+          
+          // Update text colors
+          document.querySelectorAll('[style*="color: #f4f4f8"]').forEach(el => {
+            el.style.color = textColor;
+          });
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => window.elementSdk.setConfig({ background_color: value })
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => window.elementSdk.setConfig({ surface_color: value })
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => window.elementSdk.setConfig({ text_color: value })
+            },
+            {
+              get: () => config.primary_action || defaultConfig.primary_action,
+              set: (value) => window.elementSdk.setConfig({ primary_action: value })
+            },
+            {
+              get: () => config.secondary_action || defaultConfig.secondary_action,
+              set: (value) => window.elementSdk.setConfig({ secondary_action: value })
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["hero_name", config.hero_name || defaultConfig.hero_name],
+          ["hero_tagline", config.hero_tagline || defaultConfig.hero_tagline],
+          ["about_text", config.about_text || defaultConfig.about_text],
+          ["contact_email", config.contact_email || defaultConfig.contact_email]
+        ])
+      });
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Case study modal
+    const modal = document.getElementById('case-study-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    const closeModal = document.getElementById('close-modal');
+
+    document.querySelectorAll('.case-study-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const caseId = btn.dataset.case;
+        const study = caseStudies[caseId];
+        if (study) {
+          modalTitle.textContent = study.title;
+          modalContent.innerHTML = study.content;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    });
+
+    // Contact form
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactForm.classList.add('hidden');
+      formSuccess.classList.remove('hidden');
+      
+      setTimeout(() => {
+        contactForm.reset();
+        contactForm.classList.remove('hidden');
+        formSuccess.classList.add('hidden');
+      }, 3000);
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9be592a454ae3e2e',t:'MTc2ODQ4MjIwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
